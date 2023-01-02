@@ -1,6 +1,6 @@
 pkgbase = nvidia-merged
-	pkgver = 510.85.02
-	pkgrel = 1
+	pkgver = 525.60.11
+	pkgrel = 3
 	url = https://krutavshah.github.io/GPU_Virtualization-Wiki/
 	arch = x86_64
 	groups = nvidia-merged
@@ -14,8 +14,8 @@ pkgbase = nvidia-merged
 	source = vgpu_unlock-rs.conf
 	source = nvidia.rules
 	source = nvidia-utils.sysusers
-	source = https://us.download.nvidia.com/XFree86/Linux-x86_64/510.85.02/NVIDIA-Linux-x86_64-510.85.02.run
-	source = file://NVIDIA-Linux-x86_64-510.85.03-vgpu-kvm.run
+	source = https://us.download.nvidia.com/XFree86/Linux-x86_64/525.60.11/NVIDIA-Linux-x86_64-525.60.11.run
+	source = file://NVIDIA-Linux-x86_64-525.60.12-vgpu-kvm.run
 	source = git+https://github.com/VGPU-Community-Drivers/vGPU-Unlock-patcher.git#commit=a163379
 	source = git+https://github.com/mbilker/vgpu_unlock-rs.git#commit=6deede6
 	sha256sums = be99ff3def641bb900c2486cce96530394c5dc60548fc4642f19d3a4c784134d
@@ -34,8 +34,8 @@ pkgname = lib32-nvidia-merged-utils
 	depends = lib32-zlib
 	depends = lib32-gcc-libs
 	depends = lib32-libglvnd
-	depends = nvidia-merged-utils=510.85.02
-	optdepends = lib32-opencl-nvidia=510.85.02
+	depends = nvidia-merged-utils=525.60.11
+	optdepends = lib32-opencl-nvidia=525.60.11
 	provides = lib32-vulkan-driver
 	provides = lib32-opengl-driver
 	provides = lib32-nvidia-libgl
@@ -55,7 +55,7 @@ pkgname = lib32-opencl-nvidia-merged
 pkgname = nvidia-merged-dkms
 	pkgdesc = NVIDIA drivers - module sources; patched for vGPU support w/ Rust unlock & host DRM output
 	depends = dkms
-	depends = nvidia-merged-utils=510.85.02
+	depends = nvidia-merged-utils=525.60.11
 	depends = libglvnd
 	provides = NVIDIA-MODULE
 	provides = nvidia-dkms
@@ -68,7 +68,7 @@ pkgname = nvidia-merged-settings
 	depends = gtk3
 	depends = libxv
 	depends = libvdpau
-	depends = nvidia-merged-utils=510.85.02
+	depends = nvidia-merged-utils=525.60.11
 	provides = nvidia-settings
 	conflicts = nvidia-settings
 
@@ -77,9 +77,9 @@ pkgname = nvidia-merged-utils
 	depends = xorg-server
 	depends = libglvnd
 	depends = egl-wayland
-	optdepends = nvidia-merged-settings=510.85.02: configuration tool
+	optdepends = nvidia-merged-settings=525.60.11: configuration tool
 	optdepends = xorg-server-devel: nvidia-xconfig
-	optdepends = opencl-nvidia-merged=510.85.02: OpenCL support
+	optdepends = opencl-nvidia-merged=525.60.11: OpenCL support
 	optdepends = mdevctl: mediated device configuration tool
 	optdepends = libvirt: virtualization engine control interface
 	provides = vulkan-driver

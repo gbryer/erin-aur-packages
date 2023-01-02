@@ -15,15 +15,15 @@
 
 pkgbase='nvidia-merged'
 pkgname=('lib32-nvidia-merged-utils' 'lib32-opencl-nvidia-merged' 'nvidia-merged-dkms' 'nvidia-merged-settings' 'nvidia-merged-utils' 'opencl-nvidia-merged')
-pkgver=510.85.02
-pkgrel=1
+pkgver=525.60.11
+pkgrel=3
 arch=('x86_64')
 makedepends=('git' 'rust')
 url='https://krutavshah.github.io/GPU_Virtualization-Wiki/'
 license=('custom')
 options=('!strip')
 groups=('nvidia-merged')
-_vgpupkgver=510.85.03
+_vgpupkgver=525.60.12
 _generalpkg="NVIDIA-Linux-${CARCH}-${pkgver}"
 _vgpupkg="NVIDIA-Linux-${CARCH}-${_vgpupkgver}-vgpu-kvm"
 _patchedpkg="NVIDIA-Linux-${CARCH}-${pkgver}-merged-vgpu-kvm-patched"
