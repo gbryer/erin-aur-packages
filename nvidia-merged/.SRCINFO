@@ -17,15 +17,15 @@ pkgbase = nvidia-merged
 	source = https://us.download.nvidia.com/XFree86/Linux-x86_64/525.60.11/NVIDIA-Linux-x86_64-525.60.11.run
 	source = file://NVIDIA-Linux-x86_64-525.60.12-vgpu-kvm.run
 	source = git+https://github.com/VGPU-Community-Drivers/vGPU-Unlock-patcher.git#commit=a163379
-	source = git+https://github.com/mbilker/vgpu_unlock-rs.git#commit=6deede6
+	source = git+https://github.com/mbilker/vgpu_unlock-rs.git#commit=f432ffc
 	sha256sums = be99ff3def641bb900c2486cce96530394c5dc60548fc4642f19d3a4c784134d
 	sha256sums = 20676096714ac00d9fc993901ab275e4b0fa3f2eddc937dae395c8f4e8cb543e
 	sha256sums = 5ea0d9edfcf282cea9b204291716a9a4d6d522ba3a6bc28d78edf505b6dc7949
 	sha256sums = c85ae100a6c87c12906fd0057b77c0c4190f68434de4bc3bc89348ffc19aed61
 	sha256sums = 4fbfd461f939f18786e79f8dba5fdb48be9f00f2ff4b1bb2f184dbce42dd6fc3
 	sha256sums = d8d1caa5d72c71c6430c2a0d9ce1a674787e9272ccce28b9d5898ca24e60a167
-	sha256sums = 372427e633f32cff6dd76020e8ed471ef825d38878bd9655308b6efea1051090
-	sha256sums = 773d3a215cedf5349eff00a9b052bc961f51ce971933f154f2d2997ed68aa59a
+	sha256sums = 816ee6c2e0813ccc3d4a7958f71fc49a37c60efe1d51d6146c1ce72403983d5d
+	sha256sums = fbc7d1b567c05881433139fd3458f82c3c11c9161b3193cc8d0366dcc3b67cf6
 	sha256sums = SKIP
 	sha256sums = SKIP
 
