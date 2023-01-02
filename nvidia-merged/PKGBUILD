@@ -37,10 +37,10 @@ source=(
     'vgpu_unlock-rs.conf'
     'nvidia.rules'
     'nvidia-utils.sysusers'
-    "https://us.download.nvidia.com/XFree86/Linux-${CARCH}/${pkgver}/${_generalpkg}.run"
+    "file://${_generalpkg}.run"
     "file://${_vgpupkg}.run"
-    'git+https://github.com/VGPU-Community-Drivers/vGPU-Unlock-patcher.git#commit=a163379'
-    'git+https://github.com/mbilker/vgpu_unlock-rs.git#commit=f432ffc')
+    'git+https://github.com/VGPU-Community-Drivers/vGPU-Unlock-patcher.git#commit=b039bb7'
+    'git+https://github.com/mbilker/vgpu_unlock-rs.git#commit=3c35e58')
 sha256sums=('be99ff3def641bb900c2486cce96530394c5dc60548fc4642f19d3a4c784134d'
             '20676096714ac00d9fc993901ab275e4b0fa3f2eddc937dae395c8f4e8cb543e'
             '5ea0d9edfcf282cea9b204291716a9a4d6d522ba3a6bc28d78edf505b6dc7949'
@@ -116,7 +116,7 @@ package_opencl-nvidia-merged() {
 
     # OpenCL
     install -D -m644 "${_patchedpkg}/nvidia.icd" "${pkgdir}/etc/OpenCL/vendors/nvidia.icd"
-    install -D -m755 "${_patchedpkg}/libnvidia-compiler-next.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-compiler-next.so.${pkgver}"
+#    install -D -m755 "${_patchedpkg}/libnvidia-compiler-next.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-compiler-next.so.${pkgver}"
     install -D -m755 "${_patchedpkg}/libnvidia-compiler.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-compiler.so.${pkgver}"
     install -D -m755 "${_patchedpkg}/libnvidia-opencl.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-opencl.so.${pkgver}"
 
@@ -146,11 +146,11 @@ package_nvidia-merged-settings() {
     provides=('nvidia-settings')
     conflicts=('nvidia-settings')
 
-    install -D -m755 "${_gridpkg}/nvidia-settings" "${pkgdir}/usr/bin/nvidia-settings"
-    install -D -m644 "${_gridpkg}/libnvidia-gtk3.so.${_gridpkgver}" "${pkgdir}/usr/lib/libnvidia-gtk3.so.${_gridpkgver}"
-    install -D -m644 "${_gridpkg}/nvidia-settings.1" "${pkgdir}/usr/share/man/man1/nvidia-settings.1"
-    install -D -m644 "${_gridpkg}/nvidia-settings.png" "${pkgdir}/usr/share/pixmaps/nvidia-settings.png"
-    install -D -m644 "${_gridpkg}/nvidia-settings.desktop" "${pkgdir}/usr/share/applications/nvidia-settings.desktop"
+    install -D -m755 "${_patchedpkg}/nvidia-settings" "${pkgdir}/usr/bin/nvidia-settings"
+    install -D -m644 "${_patchedpkg}/libnvidia-gtk3.so.${pkgver}" "${pkgdir}/usr/lib/libnvidia-gtk3.so.${pkgver}"
+    install -D -m644 "${_patchedpkg}/nvidia-settings.1" "${pkgdir}/usr/share/man/man1/nvidia-settings.1"
+    install -D -m644 "${_patchedpkg}/nvidia-settings.png" "${pkgdir}/usr/share/pixmaps/nvidia-settings.png"
+    install -D -m644 "${_patchedpkg}/nvidia-settings.desktop" "${pkgdir}/usr/share/applications/nvidia-settings.desktop"
 
     create_links
 
@@ -180,7 +180,9 @@ package_nvidia-merged-utils() {
     ln -s "/usr/lib/libnvidia-allocator.so.${pkgver}" "${pkgdir}/usr/lib/gbm/nvidia-drm_gbm.so"
 
     # firmware
-    install -D -m644 "${_patchedpkg}/firmware/gsp.bin" "${pkgdir}/usr/lib/firmware/nvidia/${pkgver}/gsp.bin"
+    install -D -m644 "${_patchedpkg}/firmware/gsp_tu10x.bin" "${pkgdir}/usr/lib/firmware/nvidia/${pkgver}/gsp_tu10x.bin"
+    install -D -m644 "${_patchedpkg}/firmware/gsp_ad10x.bin" "${pkgdir}/usr/lib/firmware/nvidia/${pkgver}/gsp_ad10x.bin"
+
 
     # GLX extension module for X
     install -D -m755 "${_patchedpkg}/libglxserver_nvidia.so.${pkgver}" "${pkgdir}/usr/lib/nvidia/xorg/libglxserver_nvidia.so.${pkgver}"
